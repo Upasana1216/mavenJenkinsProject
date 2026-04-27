@@ -31,4 +31,13 @@ class SparkPiSpec extends AnyFunSuite with BeforeAndAfterAll {
     val error = math.abs(pi - Math.PI)
     assert(error < 0.03, s"Estimated pi=$pi is too far from ${Math.PI}")
   }
+
+  test("computePi works with minimum slices") {
+    val pi = SparkPi.computePi(spark, 1)
+    assert(pi >= 0 && pi <= 4.0)
+  }
+
+  test("Spark version is correct") {
+    assert(spark.version === "3.5.6")
+  }
 }
