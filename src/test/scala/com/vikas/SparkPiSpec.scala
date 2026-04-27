@@ -51,6 +51,6 @@ class SparkPiSpec extends AnyFunSuite with BeforeAndAfterAll {
   }
 
   test("Simple arithmetic test") {
-    assert(1 + 1 === 2)
+    assert(1 + 5 === 4)
   }
 }
