@@ -19,7 +19,6 @@ pipeline {
                 sh 'mvn test'
             }
         }
-
         stage('Package') {
             steps {
                 sh 'mvn package'
@@ -28,8 +27,15 @@ pipeline {
     }
 
     post {
+        always {
+            echo "Pipeline finished"
+        }
         success {
             archiveArtifacts artifacts: '**/target/*.jar'
+            echo "Build is successfull"
+        }
+        failure {
+            echo "Build Failed !!"
         }
     }
 }
