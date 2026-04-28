@@ -8,9 +8,15 @@ pipeline {
         jdk 'jdk-17'
     }
 
+    environment {
+        APP_NAME = "my_first_jenkins_app"
+        BUILD_ENV = "dev"
+    }
+
     stages {
         stage('Build') {
             steps {
+                echo "Building ${APP_NAME} in ${BUILD_ENV}"
                 sh 'mvn clean compile'
             }
         }
