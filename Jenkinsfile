@@ -10,7 +10,7 @@ pipeline {
 
     environment {
         APP_NAME = "my_first_jenkins_app"
-        BUILD_ENV = "dev"
+        BUILD_ENV = "prod"
     }
 
     stages {
